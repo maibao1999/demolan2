@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+    <meta name="viewport" content="width-device-width,initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/JavaScript" src="\static\js\validate.js"></script>
+<style type="text/css">
+    #bg{
+        height: 100%;
+        width: 100%;
+        background-color: #367BB8;
+        background-image: linear-gradient(to right, rgb(25, 114, 165) , rgb(116, 11, 177));
+    }
+    .p1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+</head> 
+<body>
+    <div class="container-fluid"  id="bg" >
+
+        <div class="row" >
+           
+                <div class="col-md-4" >
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="margin-top: 200px; margin-bottom: 100%;  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.3);">
+                        <form th:action="@{/register}" th:object="${user}" method="post">
+                            <div class="card-body" >
+                                <h3 style="text-align: center;" class="p1">Đăng ký</h3>
+                                <th:block th:if="${error}">
+                                    <div class="alert alert-danger" role="alert">
+                                        <th:block th:utext="${error}"></th:block>
+                                    </div>
+                                </th:block>
+
+                                <div class="form-group">
+                                    <label class="p1">Số điện thoại</label>
+                                    <input type="text" placeholder="Số điện thoại" th:field="*{numberphone}" class="form-control" id="sdt" onblur="return kiemtrasdt();"><span style="color:red" id="messloisdt"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="p1">Tên</label>
+                                    <input type="text" placeholder="Tên" th:field="*{name}" class="form-control" id="name" onblur="return kiemtraten();"><span style="color:red" id="messloiname"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="p1">Mật khẩu</label>
+                                    <input type="password" th:field="*{password}" placeholder="Mật khẩu" class="form-control" id="password" onblur="return kiemtrapassword();"><span style="color:red" id="messloipassword"></span>
+                                </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="return dangky();" href="#">Đăng ký</button>
+                              
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+        
+    </div>
+    </div>
+   
+
+   
+</body>
+</html>

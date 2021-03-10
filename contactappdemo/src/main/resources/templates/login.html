@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel = "icon" href =
+            "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type = "image/x-icon">
+    <title>Login</title>
+    <meta name="viewport" content="width-device-width,initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/JavaScript" src="\static\js\validate.js"></script>
+
+    <style type="text/css">
+    #bg{
+        height: 100%;
+        width: 100%;
+        background-color: #367BB8;
+        background-image: linear-gradient(to right, rgb(25, 114, 165) , rgb(116, 11, 177));
+    }
+    .p1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+</head>
+<body>
+<div class="container-fluid"  id="bg" >
+
+    <div class="row" >
+
+        <div class="col-md-4" >
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="margin-top: 200px; margin-bottom: 100%;  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.3);">
+                <form method="post" action="/login">
+                    <div class="card-body" >
+                        <h3 style="text-align: center;" class="p1">Đăng nhập</h3>
+                        <div class="form-group">
+                            <label class="p1">Số điện thoại</label>
+                            <input  type="text" id="username" name="username" required="" placeholder="Số điện thoại" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="p1">Mật khẩu</label>
+                            <input type="password"  id="password" name="password"  placeholder="Mật khẩu" class="form-control" required="">
+                        </div>
+
+
+                        <th:block  th:if="${param.error}">
+                            <div class="alert alert-danger" role="alert">
+                                <p th:utext="${error}"></p>
+                            </div>
+                        </th:block>
+
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
+                        <a href="/register"><h6 style="font-style: italic;">Đăng ký tài khoản tại đây?</h6></a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
